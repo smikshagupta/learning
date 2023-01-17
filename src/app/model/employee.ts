@@ -1,5 +1,5 @@
 export class Employee {
-
+    id:number=0
     firstName!:string
     lastName!:string
     email!:string
@@ -7,5 +7,5 @@ export class Employee {
     office!:string
     department!:string
     phoneNumber!:string
-    skypeID!:string
+    skypeId!:string
 }
