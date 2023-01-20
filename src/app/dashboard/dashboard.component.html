@@ -5,11 +5,17 @@
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button> &nbsp;
-            <button (click)="showAddoption()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEmployee">Add</button>          </form>
+            <button (click)="showAddoption()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEmployee">Add</button>   
+                 </form>
         </div>
       </nav>
 
-
+<div>
+  <select name="" id="filter">
+    <option value="" disabled selected hidden>Preferred Name</option>
+    <option *ngFor="let emp of empList" [value]="emp.id">{{emp.firstName}} {{emp.lastName}}</option>
+  </select>
+</div>
   
   <!-- Add Employee -->
   <div class="modal fade" id="addEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -78,7 +84,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let emp of empList ">
+      <tr *ngFor="let emp of empList">
         <th scope="row">{{emp.id}}</th>
         <td>{{emp.firstName}} {{emp.lastName}}</td>
         <td>{{emp.email}}</td>

@@ -11,6 +11,7 @@ import { EmployeeService } from '../service/employee.service';
 })
 export class DashboardComponent implements OnInit {
   empDetails!: FormGroup
+  searchtext!:any;
   empobj: Employee = new Employee()
   empList: Employee[] = [];
   showUpdate:boolean=false;

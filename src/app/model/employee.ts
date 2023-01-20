@@ -8,4 +8,5 @@ export class Employee {
     department!:string
     phoneNumber!:string
     skypeId!:string
+    image!:string
 }

@@ -1,26 +1,29 @@
 {
   "employee": [
     {
-      "firstName": "shriya",
-      "lastName": "sharma",
+      "firstName": "Sanya",
+      "lastName": "Sharma",
       "email": "shriya@gmail.com",
       "title": "SE",
       "office": "Technovert",
       "department": "PE",
       "phoneNumber": "1234567890",
       "skypeId": "12",
+      "image":"assets/images/sanya.jpg",
       "id": 3
     },
     {
       "id": 4,
-      "firstName": "aman",
-      "lastName": "gupta",
-      "email": "aman@gmail.com",
+      "firstName": "Kartik",
+      "lastName": "Aaryan",
+      "email": "kartik@gmail.com",
       "title": "SE",
       "office": "Technovert",
       "department": "HR",
       "phoneNumber": "1234567890",
+      "image":"assets/images/kartik.jpg",
       "skypeId": "124"
+      
     },
     {
       "id": 5,
@@ -31,29 +34,44 @@
       "office": "Technovert",
       "department": "PE",
       "phoneNumber": "8717019994",
+      "image":"assets/images/m1.jpg",
       "skypeId": "125"
     },
     {
-      "firstName": "ram",
-      "lastName": "kumar",
+      "firstName": "Ram",
+      "lastName": "Kumar",
       "email": "ram@gmail.com",
       "title": "HR",
       "office": "Technovert",
       "department": "HR Dept",
       "phoneNumber": "9876543210",
       "skypeId": "098",
+      "image":"assets/images/m2.jpg",
       "id": 6
     },
     {
-      "firstName": "smiksha",
-      "lastName": "gupta",
+      "firstName": "Saloni",
+      "lastName": "Gupta",
       "email": "smiksha123@gmail.com",
       "title": "SE",
       "office": "Technovert",
       "department": "PE",
       "phoneNumber": "8717019994",
       "skypeId": "123",
+      "image":"assets/images/f1.jpg",
       "id": 7
+    },
+    {
+      "firstName": "Muskaan",
+      "lastName": "Mahajan",
+      "email": "muskan@gmail.com",
+      "title": "SE",
+      "office": "Technovert",
+      "department": "IT Department",
+      "phoneNumber": "8717019994",
+      "skypeId": "123",
+      "image":"assets/images/f2.jpg",
+      "id": 8
     }
   ]
 }

@@ -1,0 +1,200 @@
+<!--Header-->
+<div class="header">
+  <nav>
+    <label for="logo" class="logo">saketa</label>
+    <label class="name">Employee Directory</label>
+    <ul class="topnav">
+      <li>
+        <a>Welcome,Smiksha</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!--Aside-->
+<aside>
+  <div class="dep">
+    <h6>Departments</h6>
+    <ul>
+      <li>IT</li>
+      <li>Human Resources</li>
+      <li>MD</li>
+      <li>Sales</li>
+    </ul>
+  </div>
+
+  <div class="offices">
+    <h6>Offices</h6>
+    <ul>
+      <li>Seattle</li>
+      <li>India</li>
+    </ul>
+  </div>
+  <div class="titles">
+    <h6>Job Titles</h6>
+    <ul>
+      <li>SharePoint Practice Head</li>
+      <li>.Net Development Lead</li>
+      <li>Recruiting Expert</li>
+    </ul>
+  </div>
+</aside>
+
+
+<div>
+  <!--Search-->
+  <div class="row">
+    <ul class="search">
+      <!-- <li><i class="fa fa-user" aria-hidden="true"></i></li> -->
+      <li>A</li>
+      <li>B</li>
+      <li>C</li>
+      <li>D</li>
+      <li>E</li>
+      <li>F</li>
+      <li>G</li>
+      <li>H</li>
+      <li>I</li>
+      <li>J</li>
+      <li>K</li>
+      <li>L</li>
+      <li>M</li>
+      <li>N</li>
+      <li>O</li>
+      <li>P</li>
+      <li>Q</li>
+      <li>R</li>
+      <li>S</li>
+      <li>T</li>
+      <li>U</li>
+      <li>V</li>
+      <li>W</li>
+      <li>X</li>
+      <li>Y</li>
+      <li>Z</li>
+    </ul>
+  </div>
+  <div class="row-2">
+    <label>Search</label>
+    <input type="search" placeholder="Enter any keyword">
+    <!-- <i class="fa-thin fa-magnifying-glass"></i> -->
+    <button type="reset" class="btn-clear">Clear</button>
+    <!-- <button class="add-btn"  data-bs-target="#addEmployee">Add Employee</button> -->
+    <!-- Button trigger modal -->
+    <button (click)="showAddoption()" type="button" class="add-btn" data-bs-toggle="modal"
+      data-bs-target="#exampleModal">
+      Add Employee
+    </button>
+
+    <!-- Add Employee -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Employee</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="empDetails">
+              <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" formControlName="firstName" class="form-control" id="firstName"
+                  aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" formControlName="lastName" class="form-control" id="lastName">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" formControlName="email" class="form-control" id="email">
+              </div>
+              <div class="mb-3">
+                <label for="title" class="form-label">Job Title</label>
+                <input type="text" formControlName="title" class="form-control" id="title">
+              </div>
+              <div class="mb-3">
+                <label for="office" class="form-label">Office</label>
+                <input type="text" formControlName="office" class="form-control" id="office">
+              </div>
+              <div class="mb-3">
+                <label for="department" class="form-label">Department</label>
+                <input type="text" formControlName="department" class="form-control" id="department">
+              </div>
+              <div class="mb-3">
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input type="tel" formControlName="phoneNumber" class="form-control" id="phoneNumber">
+              </div>
+              <div class="mb-3">
+                <label for="skypeid" class="form-label">Skype ID</label>
+                <input type="text" formControlName="skypeId" class="form-control" id="skypeid">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button *ngIf="showAdd" type="submit" class="btn btn-success" (click)="addEmployee()">Add Details</button>
+            <button *ngIf="showUpdate" type="submit" class="btn btn-primary"
+              (click)="updateEmployee()  ">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Emp Details-->
+  <!-- <div class="row3">
+    <div *ngFor="let emp of empList" class="emp">
+      <div class="image">
+        <img class="responsive" src="{{emp.image}}" alt="Sanya" width="50" height="50">
+      </div>
+      <div class="info">
+        <h6>{{emp.firstName}} {{emp.lastName}}</h6>
+        <span>{{emp.title}}</span><br>
+        <span>{{emp.department}}</span> <br>
+        <i class="fa fa-phone-square" aria-hidden="true"></i>
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        <i class="fa fa-comment-o" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-heart" aria-hidden="true"></i>
+
+      </div>
+    </div>
+    <div class="emp">
+      <div class="image">
+        <img class="responsive" src="assets/images/kartik.jpg" alt="Sanya" width="50" height="50">
+      </div>
+      <div class="info">
+        <h6>Kartik</h6>
+        <span>Operations Manager</span>
+        <span>IT Department</span><br>
+        <i class="fa fa-phone-square" aria-hidden="true"></i>
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        <i class="fa fa-comment-o" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-heart" aria-hidden="true"></i>
+      </div>
+    </div>
+
+
+
+
+
+  </div> -->
+  <!-- Emp Details using cards-->
+  <div class="row3">
+    <div *ngFor="let emp of empList" class="card" style="width: 18rem;">
+      <img src="{{emp.image}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{emp.firstName}} {{emp.lastName}}</h5>
+        <p class="card-text">{{emp.title}}</p>
+        <p class="card-text">{{emp.department}}</p>
+        <i class="fa fa-phone-square" aria-hidden="true"></i>
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        <i class="fa fa-comment-o" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-heart" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+</div>
