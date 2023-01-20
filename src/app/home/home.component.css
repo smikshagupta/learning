@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+.header{
+    display: flex;
+    margin-bottom: 15px;
+}
+nav{
+    width: 100%;
+    height: 80px;
+    margin: 0 5%;
+    border: 1px solid gray;
+    border-style: hidden hidden solid hidden ;
+}
+label.logo{
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 80px;
+    padding: 0 10px;
+    margin-right: 20px;
+}
+nav ul{
+    list-style: none;
+    float: right;
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin:0 5px;
+}
+label.name{
+    line-height: 80px;
+    font-size: 30px;
+    color: #00BFFF;
+    
+}
+
+
+aside{
+    width:15%;
+    padding-left: 15px;
+    margin-top: 5%;
+    margin-left:15px;
+    float: left;
+}
+aside ul {
+    list-style: none;
+    color: gray;
+}
+.offices{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+h6 {
+    margin-bottom: 3%;
+}
+.row{
+    display: flex;
+    margin-top: 5%;
+}
+
+.search{
+    list-style-type: none;
+    width:20px;
+}
+.search li{
+    background-color: #00BFFF;
+    padding: 5px 10px;
+    margin:5%;
+    display: inline;
+    color: white;
+}
+.search li i{
+    padding: 0;
+}
+input{
+    border: 1px solid gray;
+    padding: 5px;
+    margin:2%;
+    text-align: justify;
+    color: gray;
+}
+.btn-clear{
+    background-color: rgb(98, 228, 105);
+    border-radius: 0;
+    padding: 5px 20px;
+    color: white;
+
+}
+.brand{
+    float: left;
+    color:black;
+    text-decoration: none;
+    font-size: 17px;
+    padding-left: 15px;
+}
+.add-btn{
+    background-color: #00BFFF;
+    color: white;
+    display: inline;
+    margin: 5px;
+    padding: 5px 20px;
+    
+}
+div.row3{
+    margin: auto;
+    border: 1px solid gray;
+    padding: 25px;
+    width: 65%;
+
+}
+.emp{
+    display: inline-block;
+    margin-right: 20px;
+    background-color: rgb(219, 206, 206);
+    padding: 10px;
+    width:30%;
+    height: 100px;
+}
+span{
+    color: grey;
+    font-size: 12px;
+}
+h6 {
+    margin-bottom: 1px;
+}
+.emp i{
+    color: grey;
+    margin-right: 5px;
+    size:5px;
+}
+img{
+    float: left;
+    width: 50px;
+    max-width: 100%;
+    height: 80px;
+    margin-right: 5px;
+}
+.card{
+    display: inline-block;
+    background-color: rgb(219, 218, 218);
+    margin: 0 5px 5px 0;
+    padding: 10px;
+    border-radius: 0%;
+    font-size: 12px;
+}
+.card-body, .card-body i{
+    color:grey;
+    margin-right: 5px;
+}
+.card-title{
+    color: black;
+    font-size: 15px;
+    padding-bottom: 5px;
+}
+.card-img-top{
+    border-radius: 0%;
+    width: 60px;
+    height: 75px;
+    padding-right: 5px;
+}
+
+/* @media screen and (max-width:700px) {
+    .search li{
+        display: block;
+        float:right;
+    }
+
+
+} */
