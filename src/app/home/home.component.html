@@ -1,51 +1,12 @@
-<!--Header-->
-<div class="header">
-  <nav>
-    <label for="logo" class="logo">saketa</label>
-    <label class="name">Employee Directory</label>
-    <ul class="topnav">
-      <li>
-        <a>Welcome,Smiksha</a>
-      </li>
-    </ul>
-  </nav>
-</div>
+<app-header></app-header>
 
-<!--Aside-->
-<aside>
-  <div class="dep">
-    <h6>Departments</h6>
-    <ul>
-      <li>IT</li>
-      <li>Human Resources</li>
-      <li>MD</li>
-      <li>Sales</li>
-    </ul>
-  </div>
+<app-sidebar></app-sidebar>
 
-  <div class="offices">
-    <h6>Offices</h6>
-    <ul>
-      <li>Seattle</li>
-      <li>India</li>
-    </ul>
-  </div>
-  <div class="titles">
-    <h6>Job Titles</h6>
-    <ul>
-      <li>SharePoint Practice Head</li>
-      <li>.Net Development Lead</li>
-      <li>Recruiting Expert</li>
-    </ul>
-  </div>
-</aside>
-
-
-<div>
+<div class="container">
   <!--Search-->
-  <div class="row">
+  <div class="row1">
     <ul class="search">
-      <!-- <li><i class="fa fa-user" aria-hidden="true"></i></li> -->
+      <li><i class="fa fa-user" aria-hidden="true"></i></li>
       <li>A</li>
       <li>B</li>
       <li>C</li>
@@ -74,18 +35,30 @@
       <li>Z</li>
     </ul>
   </div>
-  <div class="row-2">
-    <label>Search</label>
-    <input type="search" placeholder="Enter any keyword">
+  <div class="row">
+    <div class="col-md-5">
+      <label>Search</label>
+    <input type="search" placeholder="Enter any keyword" [(ngModel)]="searchedItem" (ngModelChange)="filterEmployee()">
     <!-- <i class="fa-thin fa-magnifying-glass"></i> -->
-    <button type="reset" class="btn-clear">Clear</button>
+      <button type="reset" class="btn-clear">Clear</button>
+    </div>
     <!-- <button class="add-btn"  data-bs-target="#addEmployee">Add Employee</button> -->
     <!-- Button trigger modal -->
+    <div class="col-md-5">
+      <label>Filter by</label>
+      <select class="form-select" >
+        <option selected>Preferred Name</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="col-md-2">
     <button (click)="showAddoption()" type="button" class="add-btn" data-bs-toggle="modal"
       data-bs-target="#exampleModal">
       Add Employee
     </button>
-
+  </div>
     <!-- Add Employee -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -140,6 +113,7 @@
         </div>
       </div>
     </div>
+    
   </div>
 
   <!--Emp Details-->
@@ -181,9 +155,14 @@
 
 
   </div> -->
+  
+  <div class="row">
+    <p><b>Note:</b> Please use the refined filter options to refine your results.</p>
+  </div>
+  
   <!-- Emp Details using cards-->
   <div class="row3">
-    <div *ngFor="let emp of empList" class="card" style="width: 18rem;">
+    <div *ngFor="let emp of filteredList" class="card" style="width: 18rem;">
       <img src="{{emp.image}}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{emp.firstName}} {{emp.lastName}}</h5>

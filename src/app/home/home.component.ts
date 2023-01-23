@@ -12,8 +12,10 @@ export class HomeComponent implements OnInit{
   empDetails!:FormGroup;
   empobj: Employee = new Employee();
   empList:Employee[]=[];
+  filteredList:Employee[]=[];
   showAdd:boolean=false;
   showUpdate:boolean=false;
+  searchedItem!:string;
   constructor(private fb:FormBuilder,private empservice:EmployeeService){
   }
   ngOnInit():void{
@@ -36,12 +38,13 @@ export class HomeComponent implements OnInit{
     this.empservice.getAllEmployees().subscribe(
       res=>{
         this.empList=res;
-        console.log(this.empList);
+        this.filteredList=this.empList;
       },
       err=>{
         console.log(err);
       }
-    )
+    );
+  
   }
   addEmployee() {
     console.log(this.empDetails);
@@ -69,6 +72,12 @@ export class HomeComponent implements OnInit{
     this.empDetails.reset();
     this.showAdd=true;
     this.showUpdate=false;
+  }
+  filterEmployee(){
+    if (this.searchedItem){
+      this.filteredList=this.empList.filter(emp => emp.firstName.toLowerCase().includes(this.searchedItem.toLowerCase()));
+      console.log("Filtered Employees:" +this.filteredList.length);
+    }
   }
   updateEmployee(){
     this.empobj.firstName = this.empDetails.value.firstName

@@ -1,0 +1,22 @@
+ul,li,h5,span,a,img,p,div i,.card-body{
+    margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+aside{
+    width:15%;
+    padding-left: 15px;
+    margin-top: 5%;
+    margin-left:15px;
+    margin-right: 3%;
+    float: left;
+}
+aside ul {
+    list-style: none;
+    color: gray;
+}
+.offices{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
