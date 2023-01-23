@@ -46,11 +46,12 @@
     <!-- Button trigger modal -->
     <div class="col-md-5">
       <label>Filter by</label>
-      <select class="form-select" >
+      <select class="form-select" [(ngModel)]="filterby" >
         <option selected>Preferred Name</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <option value="firstName">firstName</option>
+        <option value="department">Department</option>
+        <option value="title">Title</option>
+        <option value="email">Email</option>
       </select>
     </div>
     <div class="col-md-2">

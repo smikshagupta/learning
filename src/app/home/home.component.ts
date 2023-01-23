@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit{
   showAdd:boolean=false;
   showUpdate:boolean=false;
   searchedItem!:string;
+  filterby:string="firstName";
   constructor(private fb:FormBuilder,private empservice:EmployeeService){
   }
   ngOnInit():void{
@@ -77,6 +78,14 @@ export class HomeComponent implements OnInit{
     if (this.searchedItem){
       this.filteredList=this.empList.filter(emp => emp.firstName.toLowerCase().includes(this.searchedItem.toLowerCase()));
       console.log("Filtered Employees:" +this.filteredList.length);
+      if(this.filterby=="department")
+      this.filteredList=this.empList.filter(emp => emp.department.toLowerCase().includes(this.searchedItem.toLowerCase()));
+      else if(this.filterby=="title"){
+        this.filteredList=this.empList.filter(emp => emp.title.toLowerCase().includes(this.searchedItem.toLowerCase()));
+      }
+      else if(this.filterby=="email"){
+        this.filteredList=this.empList.filter(emp => emp.email.toLowerCase().includes(this.searchedItem.toLowerCase()));
+      }
     }
     else{
       this.filteredList=this.empList;
