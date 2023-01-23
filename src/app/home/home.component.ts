@@ -78,6 +78,9 @@ export class HomeComponent implements OnInit{
       this.filteredList=this.empList.filter(emp => emp.firstName.toLowerCase().includes(this.searchedItem.toLowerCase()));
       console.log("Filtered Employees:" +this.filteredList.length);
     }
+    else{
+      this.filteredList=this.empList;
+    }
   }
   updateEmployee(){
     this.empobj.firstName = this.empDetails.value.firstName
