@@ -16,10 +16,15 @@ export class HomeComponent implements OnInit{
   showAdd:boolean=false;
   showUpdate:boolean=false;
   searchedItem!:string;
-  filterby:string="firstName";
+  filterby:string="Preferred Name";
+  alphabets:string[]=[];
+  
   constructor(private fb:FormBuilder,private empservice:EmployeeService){
   }
   ngOnInit():void{
+    for (let i=65; i<91;i++){
+      this.alphabets.push(String.fromCharCode(i));
+    }
       this.getEmployees();
       this.empDetails=this.fb.group(
         {
@@ -34,6 +39,10 @@ export class HomeComponent implements OnInit{
         }
       )
       
+  }
+  sidebarFilter(data:Employee[]){
+    this.filteredList=data;
+    console.log("Sidebar filtered results");
   }
   getEmployees(){
     this.empservice.getAllEmployees().subscribe(
@@ -74,17 +83,34 @@ export class HomeComponent implements OnInit{
     this.showAdd=true;
     this.showUpdate=false;
   }
-  filterEmployee(){
+  filterEmployee1(searchItem:string,filterby:string){
+    this.empservice.filtering(searchItem,filterby)?.subscribe(
+      res=>{
+        this.filteredList=res;
+      },
+      err=>{
+        console.log(err);
+      }
+    )
+  }
+  filterEmployee(search?:string){
+    if (search){
+      this.searchedItem=search;
+    }
     if (this.searchedItem){
-      this.filteredList=this.empList.filter(emp => emp.firstName.toLowerCase().includes(this.searchedItem.toLowerCase()));
       console.log("Filtered Employees:" +this.filteredList.length);
       if(this.filterby=="department")
       this.filteredList=this.empList.filter(emp => emp.department.toLowerCase().includes(this.searchedItem.toLowerCase()));
+      
       else if(this.filterby=="title"){
         this.filteredList=this.empList.filter(emp => emp.title.toLowerCase().includes(this.searchedItem.toLowerCase()));
       }
+      
       else if(this.filterby=="email"){
         this.filteredList=this.empList.filter(emp => emp.email.toLowerCase().includes(this.searchedItem.toLowerCase()));
+      }
+      else{
+        this.filteredList=this.empList.filter(emp => emp.firstName.toLowerCase().includes(this.searchedItem.toLowerCase()));
       }
     }
     else{

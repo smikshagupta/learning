@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';import { filter, map, Observable } from 'rxjs';
 import { Employee } from '../model/employee';
 @Injectable({
   providedIn: 'root'
@@ -28,5 +28,30 @@ export class EmployeeService {
 
     return this.http.delete('http://localhost:3000/employee/'+id);
   }
+  filtering(searchItem:string,filterby:string){
+    if(filterby =="department")
+      return this.getAllEmployees().pipe(
+        map(emp=> emp.filter(emp=>emp[filterby].toLowerCase().includes(searchItem.toLowerCase())))
+      );
+    else if(filterby=="title") 
+    return this.getAllEmployees().pipe(
+      map(emp=> emp.filter(emp=>emp.title.toLowerCase().includes(searchItem.toLowerCase())))
+    );
+    else if(filterby=="office")
+    return this.getAllEmployees().pipe(
+      map(emp=> emp.filter(emp=>emp[filterby].toLowerCase().includes(searchItem.toLowerCase())))
+    )
+    else if(filterby=="email")
+    return this.getAllEmployees().pipe(
+      map(emp=> emp.filter(emp=>emp.email.toLowerCase().includes(searchItem.toLowerCase())))
+    );
+    else
+    return this.getAllEmployees().pipe(
+      map(emp=> emp.filter(emp=>emp.firstName.toLowerCase().includes(searchItem.toLowerCase())))
+    )
+  }
+
+  
+
 }
 

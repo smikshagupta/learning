@@ -1,19 +1,19 @@
 <aside>
     <div class="dep">
-      <h6>Departments</h6>
+      <h6 [(ngModel)]="filterby" value="department">Departments</h6>
       <ul>
-        <li>IT</li>
-        <li>Human Resources</li>
+        <li (click)="filterEmp('it','department')" value="it" >IT</li>
+        <li (click)="filterEmp('hr','department')">Human Resources</li>
         <li>MD</li>
         <li>Sales</li>
       </ul>
     </div>
   
     <div class="offices">
-      <h6>Offices</h6>
+      <h6 [(ngModel)]="filterby" value="office">Offices</h6>
       <ul>
-        <li>Seattle</li>
-        <li>India</li>
+        <li (click)="filterEmp('seattle','office')">Seattle</li>
+        <li (click)="filterEmp('india','office')">India</li>
       </ul>
     </div>
     <div class="titles">

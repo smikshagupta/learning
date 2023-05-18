@@ -1,44 +1,19 @@
 <app-header></app-header>
 
-<app-sidebar></app-sidebar>
+<app-sidebar (sidebar)="sidebarFilter($event)"></app-sidebar>
 
 <div class="container">
   <!--Search-->
   <div class="row1">
     <ul class="search">
       <li (click)="getEmployees()"><i class="fa fa-user" aria-hidden="true"></i></li>
-      <li>A</li>
-      <li>B</li>
-      <li>C</li>
-      <li>D</li>
-      <li>E</li>
-      <li>F</li>
-      <li>G</li>
-      <li>H</li>
-      <li>I</li>
-      <li>J</li>
-      <li>K</li>
-      <li>L</li>
-      <li>M</li>
-      <li>N</li>
-      <li>O</li>
-      <li>P</li>
-      <li>Q</li>
-      <li>R</li>
-      <li>S</li>
-      <li>T</li>
-      <li>U</li>
-      <li>V</li>
-      <li>W</li>
-      <li>X</li>
-      <li>Y</li>
-      <li>Z</li>
+      <li *ngFor="let char of alphabets" (click)="filterEmployee1(char,filterby)">{{char}}</li>
     </ul>
   </div>
   <div class="row">
     <div class="col-md-5">
       <label>Search</label>
-    <input type="search" placeholder="Enter any keyword" [(ngModel)]="searchedItem" (ngModelChange)="filterEmployee()">
+    <input type="search" placeholder="Enter any keyword" [(ngModel)]="searchedItem" (ngModelChange)="filterEmployee1(searchedItem,filterby)">
     <!-- <i class="fa-thin fa-magnifying-glass"></i> -->
       <button type="reset" class="btn-clear">Clear</button>
     </div>
@@ -116,46 +91,6 @@
     </div>
     
   </div>
-
-  <!--Emp Details-->
-  <!-- <div class="row3">
-    <div *ngFor="let emp of empList" class="emp">
-      <div class="image">
-        <img class="responsive" src="{{emp.image}}" alt="Sanya" width="50" height="50">
-      </div>
-      <div class="info">
-        <h6>{{emp.firstName}} {{emp.lastName}}</h6>
-        <span>{{emp.title}}</span><br>
-        <span>{{emp.department}}</span> <br>
-        <i class="fa fa-phone-square" aria-hidden="true"></i>
-        <i class="fa fa-envelope-o" aria-hidden="true"></i>
-        <i class="fa fa-comment-o" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-heart" aria-hidden="true"></i>
-
-      </div>
-    </div>
-    <div class="emp">
-      <div class="image">
-        <img class="responsive" src="assets/images/kartik.jpg" alt="Sanya" width="50" height="50">
-      </div>
-      <div class="info">
-        <h6>Kartik</h6>
-        <span>Operations Manager</span>
-        <span>IT Department</span><br>
-        <i class="fa fa-phone-square" aria-hidden="true"></i>
-        <i class="fa fa-envelope-o" aria-hidden="true"></i>
-        <i class="fa fa-comment-o" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-heart" aria-hidden="true"></i>
-      </div>
-    </div>
-
-
-
-
-
-  </div> -->
   
   <div class="row">
     <p><b>Note:</b> Please use the refined filter options to refine your results.</p>
